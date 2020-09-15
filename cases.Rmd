@@ -1,0 +1,22 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(readr)
+library(dplyr)
+library(rworldmap)
+
+data = read_csv('cases.csv')
+x = select(data,Country_Region,Confirmed)
+x = dplyr::group_by(x, Country_Region) %>% dplyr::summarise_all(sum)
+x
+n <- joinCountryData2Map(x, joinCode="NAME", nameJoinColumn="Country_Region")
+mapCountryData(n,
+               nameColumnToPlot="Confirmed",
+               mapTitle="COVID cases by country",catMethod="logFixedWidth",
+               colourPalette = "heat",
+               oceanCol="lightblue", missingCountryCol="grey")
+```
