@@ -1,2 +1,2 @@
 # RCovidMap
-Representation of covid cases in a map.
+Representation of COVID cases in a map. Made in R.
