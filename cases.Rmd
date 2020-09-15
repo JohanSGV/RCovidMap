@@ -16,7 +16,8 @@ x
 n <- joinCountryData2Map(x, joinCode="NAME", nameJoinColumn="Country_Region")
 mapCountryData(n,
                nameColumnToPlot="Confirmed",
-               mapTitle="COVID cases by country",catMethod="logFixedWidth",
+               mapTitle="COVID cases by country",
+               catMethod=c(0,10,100,1000,10000,50000,100000,500000,1000000,10000000),
                colourPalette = "heat",
                oceanCol="lightblue", missingCountryCol="grey")
 ```
